@@ -21,6 +21,16 @@ leftPaddle.shapesize(stretch_wid=5, stretch_len=1)
 leftPaddle.penup()
 leftPaddle.goto(-350,0)
 
+#creating the pingpong bat
+rightPaddle = t.Turtle()
+rightPaddle.speed(0)
+rightPaddle.shape("square")
+rightPaddle.color("white")
+#changing the square to look like a bat
+rightPaddle.shapesize(stretch_wid=5, stretch_len=1)
+rightPaddle.penup()
+rightPaddle.goto(350,0)
+
 
 
 
