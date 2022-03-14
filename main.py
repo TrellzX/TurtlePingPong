@@ -38,6 +38,14 @@ ball.color("white")
 ball.penup()
 ball.goto(5,5)
 
+#making pen
+pen = t.Turtle()
+pen.speed(0)
+pen.color("blue")
+pen.penup()
+pen.hideturtle()
+pen.goto(0,260)
+pen.write("SCORE",align="centre",font=("Ariel",24,"bold") )
 
 
 
