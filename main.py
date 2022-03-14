@@ -76,7 +76,7 @@ window.listen()
 window.onkey(rightPaddleUp,         "Up")
 window.onkey(rightPaddleDown,       "Down")
 window.onkey(leftPaddleUp,          "w")
-window.onkey(leftPaddleDown,          "s")
+window.onkey(leftPaddleDown,        "s")
 
 
 
