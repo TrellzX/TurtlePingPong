@@ -45,7 +45,7 @@ pen.color("blue")
 pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
-pen.write("SCORE",align="centre",font=("Ariel",24,"bold") )
+pen.write("SCORE", align="centre", font=("Ariel", 24, "normal"))
 
 #paddle up (right)
 def rightPaddleUp():
@@ -71,6 +71,10 @@ def leftPaddleDown():
     y = y-90
     leftPaddle.sety(y)
 
+#ball movement
+ballDirectrionX = 0.4
+ballDirectrionY = 0.4
+
 #creating keybinds
 window.listen()
 window.onkey(rightPaddleUp,         "Up")
@@ -78,7 +82,23 @@ window.onkey(rightPaddleDown,       "Down")
 window.onkey(leftPaddleUp,          "w")
 window.onkey(leftPaddleDown,        "s")
 
+#game loop
 
+while True:
+    window.update()
+
+    #moving ball
+    ball.setx(ball.xcor()+ballDirectrionX)
+    ball.sety(ball.ycor() + ballDirectrionY)
+
+#right top border
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ballDirectrionY = ballDirectrionY *-1
+#left top border
+    if ball.ycor() > -290:
+        ball.sety(-290)
+        ballDirectrionY = ballDirectrionY *-1
 
 
 
