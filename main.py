@@ -71,7 +71,12 @@ def leftPaddleDown():
     y = y-90
     leftPaddle.sety(y)
 
-
+#creating keybinds
+window.listen()
+window.onkey(rightPaddleUp,         "Up")
+window.onkey(rightPaddleDown,       "Down")
+window.onkey(leftPaddleUp,          "w")
+window.onkey(leftPaddleDown,          "s")
 
 
 
