@@ -47,6 +47,30 @@ pen.hideturtle()
 pen.goto(0,260)
 pen.write("SCORE",align="centre",font=("Ariel",24,"bold") )
 
+#paddle up (right)
+def rightPaddleUp():
+    y = rightPaddle.ycor()
+    y = y+90
+    rightPaddle.sety(y)
+
+#paddle down (right)
+def rightPaddleDown():
+    y = rightPaddle.ycor()
+    y = y-90
+    rightPaddle.sety(y)
+
+#paddle up (left)
+def leftPaddleUp():
+    y = leftPaddle.ycor()
+    y = y+90
+    leftPaddle.sety(y)
+
+#paddle down (left)
+def leftPaddleDown():
+    y = leftPaddle.ycor()
+    y = y-90
+    leftPaddle.sety(y)
+
 
 
 
