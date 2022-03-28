@@ -8,7 +8,9 @@ window = t.Screen()
 window.title("Pong game!")
 #making background black
 window.bgcolor("black")
-
+#variable for scoring
+playerAscore = 0
+playerBscore = 0
 # setting window dimensions
 window.setup(width=800, height=600)
 #creating the pingpong bat
@@ -36,7 +38,7 @@ ball = t.Turtle()
 ball.shape("circle")
 ball.color("white")
 ball.penup()
-ball.goto(5,5)
+ball.goto(0,0)
 
 #making pen
 pen = t.Turtle()
@@ -45,35 +47,35 @@ pen.color("blue")
 pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
-pen.write("SCORE", align="centre", font=("Ariel", 24, "normal"))
+pen.write("SCORE", align="center", font=("Ariel", 24, "normal"))
 
 #paddle up (right)
 def rightPaddleUp():
     y = rightPaddle.ycor()
-    y = y+90
+    y = y+15
     rightPaddle.sety(y)
 
 #paddle down (right)
 def rightPaddleDown():
     y = rightPaddle.ycor()
-    y = y-90
+    y = y-15
     rightPaddle.sety(y)
 
 #paddle up (left)
 def leftPaddleUp():
     y = leftPaddle.ycor()
-    y = y+90
+    y = y+15
     leftPaddle.sety(y)
 
 #paddle down (left)
 def leftPaddleDown():
     y = leftPaddle.ycor()
-    y = y-90
+    y = y-15
     leftPaddle.sety(y)
 
 #ball movement
-ballDirectrionX = 0.4
-ballDirectrionY = 0.4
+ballDirectrionX = 4
+ballDirectrionY = 4
 
 #creating keybinds
 window.listen()
@@ -94,11 +96,27 @@ while True:
 #right top border
     if ball.ycor() > 290:
         ball.sety(290)
-        ballDirectrionY = ballDirectrionY *-1
+        ballDirectrionY *=-1
 #left top border
-    if ball.ycor() > -290:
+    if ball.ycor() < -290:
         ball.sety(-290)
-        ballDirectrionY = ballDirectrionY *-1
+        ballDirectrionY *=-1
+#Checking if the ball has hit the rightwall
+    if ball.xcor() > 390:
+        #bringing the ball back to the middle after it scores
+        ball.goto(0,0)
+        # moving the ball opposite side
+        ballDirectrionX *=-1
+        #inreasing player A's score
+        playerAscore += 1
+        pen.clear()
+        #Typing the score
+        pen.write("Player A: {}               "
+                  "Player B  {}".format(playerAscore,playerBscore), align="center",font=("Monaco", 24 , "bold"))
+
+
+
+
 
 
 
