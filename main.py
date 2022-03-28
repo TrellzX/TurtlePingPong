@@ -114,7 +114,30 @@ while True:
         pen.write("Player A: {}               "
                   "Player B  {}".format(playerAscore,playerBscore), align="center",font=("Monaco", 24 , "bold"))
 
+  # Checking if the ball has hit the leftwall
+    if ball.xcor() < -390:
+        # bringing the ball back to the middle after it scores
+        ball.goto(0,0)
+        # moving the ball to the opposite side
+        ballDirectrionX = ballDirectrionX * -1
+        # inreasing player B's score
+        playerBscore += 1
+        pen.clear()
+        #Typing the score
+        pen.write("Player A: {}               "
+                  "Player B  {}".format(playerAscore,playerBscore), align="center",font=("Monaco", 24 , "bold"))
 
+    # checking if the ball has hit the rightpaddle
+    if (ball.xcor() > 340) and (ball.xcor() < 350) and (
+            ball.ycor() < rightPaddle.ycor() + 40 and ball.ycor() > rightPaddle.ycor() - 40):
+        ball.setx(340)
+        ballDirectrionX  = ballDirectrionX  * -1
+
+    # checking if the ball has hit the leftpaddle
+    if (ball.xcor() < -340) and (ball.xcor() > -350) and (
+            ball.ycor() < leftPaddle.ycor() + 40 and ball.ycor() > leftPaddle.ycor() - 40):
+        ball.setx(-340)
+        ballDirectrionX  = ballDirectrionX  * -1
 
 
 
